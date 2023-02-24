@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/constants.dart';
+import 'package:greengrocer/src/utils/colors.dart';
 import 'package:greengrocer/src/views/screens/auth/sign_in_screen.dart';
 
 void main() {

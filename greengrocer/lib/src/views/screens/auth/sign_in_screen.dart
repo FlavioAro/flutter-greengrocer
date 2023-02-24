@@ -1,130 +1,118 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/constants.dart';
-import 'package:greengrocer/src/views/components/buttons/custom_outlinebutton.dart';
-import 'package:greengrocer/src/views/components/buttons/custom_textbutton.dart';
+import 'package:greengrocer/src/utils/colors.dart';
 import 'package:greengrocer/src/views/components/custom_textfield.dart';
 import 'package:greengrocer/src/views/components/buttons/custom_button.dart';
+import 'package:greengrocer/src/views/components/buttons/custom_textbutton.dart';
+import 'package:greengrocer/src/views/components/buttons/custom_outlinebutton.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: colorNeutral300,
-      body: Column(
-        children: [
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text.rich(
-                  TextSpan(
-                    style: TextStyle(
-                      fontSize: 40,
-                    ),
-                    children: [
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: size.height,
+          width: size.width,
+          child: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text.rich(
                       TextSpan(
-                        text: 'Green',
                         style: TextStyle(
-                          color: colorNeutral200,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 40,
                         ),
-                      ),
-                      TextSpan(
-                        text: 'grocer',
-                        style: TextStyle(
-                          color: colorNeutral100,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                      fontSize: 25,
-                    ),
-                    child: AnimatedTextKit(
-                      repeatForever: true,
-                      animatedTexts: [
-                        FadeAnimatedText('Fruits'),
-                        FadeAnimatedText('Vegetables'),
-                        FadeAnimatedText('Meat'),
-                        FadeAnimatedText('Cereals'),
-                        FadeAnimatedText('Dairy Products'),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 32,
-              vertical: 40,
-            ),
-            decoration: const BoxDecoration(
-              color: colorNeutral200,
-              borderRadius: BorderRadius.vertical(
-                top: Radius.circular(45),
-              ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const CustomTextField(
-                  label: 'Email',
-                  icon: Icons.email,
-                ),
-                const SizedBox(height: 15),
-                const CustomTextField(
-                  label: 'Senha',
-                  icon: Icons.lock,
-                  password: true,
-                ),
-                const SizedBox(height: 15),
-                CustomButton(
-                  onPressed: () {},
-                  label: 'Entrar',
-                ),
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: CustomTextButton(label: 'Esqueceu a senha?'),
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Divider(
-                        color: colorNeutral500,
-                        thickness: 2,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: Text('OU'),
-                    ),
-                    Expanded(
-                      child: Divider(
-                        color: colorNeutral500,
-                        thickness: 2,
+                        children: [
+                          TextSpan(
+                            text: 'Green',
+                            style: TextStyle(
+                              color: colorNeutral200,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'grocer',
+                            style: TextStyle(
+                              color: colorNeutral100,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 15),
-                CustomOutlineButton(
-                  onPressed: () {},
-                  label: 'Criar conta',
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                  vertical: 40,
                 ),
-                const SizedBox(height: 15),
-              ],
-            ),
+                decoration: const BoxDecoration(
+                  color: colorNeutral200,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(45),
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const CustomTextField(
+                      label: 'Email',
+                      icon: Icons.email,
+                    ),
+                    const SizedBox(height: 15),
+                    const CustomTextField(
+                      label: 'Senha',
+                      icon: Icons.lock,
+                      password: true,
+                    ),
+                    const SizedBox(height: 15),
+                    CustomButton(
+                      onPressed: () {},
+                      label: 'Entrar',
+                    ),
+                    const Align(
+                      alignment: Alignment.centerRight,
+                      child: CustomTextButton(label: 'Esqueceu a senha?'),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Divider(
+                            color: colorNeutral500,
+                            thickness: 2,
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          child: Text('OU'),
+                        ),
+                        Expanded(
+                          child: Divider(
+                            color: colorNeutral500,
+                            thickness: 2,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 15),
+                    CustomOutlineButton(
+                      onPressed: () {},
+                      label: 'Criar conta',
+                    ),
+                    const SizedBox(height: 15),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
