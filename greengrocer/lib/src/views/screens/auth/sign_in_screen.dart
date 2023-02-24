@@ -4,6 +4,7 @@ import 'package:greengrocer/src/views/components/custom_textfield.dart';
 import 'package:greengrocer/src/views/components/buttons/custom_button.dart';
 import 'package:greengrocer/src/views/components/buttons/custom_textbutton.dart';
 import 'package:greengrocer/src/views/components/buttons/custom_outlinebutton.dart';
+import 'package:greengrocer/src/views/screens/auth/sign_up_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -68,18 +69,18 @@ class SignInScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     const CustomTextField(
-                      label: 'Senha',
+                      label: 'Password',
                       icon: Icons.lock,
                       password: true,
                     ),
                     const SizedBox(height: 15),
                     CustomButton(
                       onPressed: () {},
-                      label: 'Entrar',
+                      label: 'To enter',
                     ),
                     const Align(
                       alignment: Alignment.centerRight,
-                      child: CustomTextButton(label: 'Esqueceu a senha?'),
+                      child: CustomTextButton(label: 'Forgot password?'),
                     ),
                     Row(
                       children: [
@@ -91,7 +92,7 @@ class SignInScreen extends StatelessWidget {
                         ),
                         const Padding(
                           padding: EdgeInsets.symmetric(horizontal: 15),
-                          child: Text('OU'),
+                          child: Text('OR'),
                         ),
                         Expanded(
                           child: Divider(
@@ -103,8 +104,16 @@ class SignInScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     CustomOutlineButton(
-                      onPressed: () {},
-                      label: 'Criar conta',
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (c) {
+                              return const SignUpScreen();
+                            },
+                          ),
+                        );
+                      },
+                      label: 'Create an account',
                     ),
                     const SizedBox(height: 15),
                   ],
