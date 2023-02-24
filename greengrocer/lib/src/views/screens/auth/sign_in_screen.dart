@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/constants.dart';
 import 'package:greengrocer/src/views/components/buttons/custom_outlinebutton.dart';
@@ -15,7 +16,51 @@ class SignInScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(color: colorNeutral300),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text.rich(
+                  TextSpan(
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'Green',
+                        style: TextStyle(
+                          color: colorNeutral200,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'grocer',
+                        style: TextStyle(
+                          color: colorNeutral100,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontSize: 25,
+                    ),
+                    child: AnimatedTextKit(
+                      repeatForever: true,
+                      animatedTexts: [
+                        FadeAnimatedText('Fruits'),
+                        FadeAnimatedText('Vegetables'),
+                        FadeAnimatedText('Meat'),
+                        FadeAnimatedText('Cereals'),
+                        FadeAnimatedText('Dairy Products'),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(
